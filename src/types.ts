@@ -391,6 +391,7 @@ export type Route = NavigatorRoute<string, RouteParams>;
 
 export type RouteParams = {
   id?: string;
+  behaviorElementId?: number;
   url: string;
   preloadScreen?: number;
   isModal?: boolean;
