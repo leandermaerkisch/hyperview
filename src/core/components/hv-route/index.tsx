@@ -300,8 +300,13 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
         }
       }
     }
-    const LoadingScreen = this.props.loadingScreen || Loading;
-    return <LoadingScreen />;
+    const loadingScreen = this.props.loadingScreen || Loading;
+    const behaviorElement = this.props.route?.params?.behaviorElementId
+      ? this.props.getPreload(this.props.route?.params?.behaviorElementId)
+      : undefined;
+    return React.createElement(loadingScreen, {
+      element: behaviorElement,
+    });
   };
 
   /**
