@@ -98,6 +98,29 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
       this.load();
       this.needsLoad = false;
     }
+
+    // Clean out loading screen cache after the screen has been rendered
+    if (
+      this.props.element ||
+      this.localDoc ||
+      this.props.route?.params?.isModal
+    ) {
+      if (this.props.route?.params?.preloadScreen) {
+        this.removePreload(this.props.route?.params?.preloadScreen);
+      }
+      if (this.props.route?.params?.behaviorElementId) {
+        this.removePreload(this.props.route?.params?.behaviorElementId);
+      }
+    }
+  }
+
+  componentWillUnmount(): void {
+    if (this.props.route?.params?.preloadScreen) {
+      this.removePreload(this.props.route?.params?.preloadScreen);
+    }
+    if (this.props.route?.params?.behaviorElementId) {
+      this.removePreload(this.props.route?.params?.behaviorElementId);
+    }
   }
 
   /**

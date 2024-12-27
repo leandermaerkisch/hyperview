@@ -218,6 +218,17 @@ export default class HvScreen extends React.Component {
       }
       const stylesheets = Stylesheets.createStylesheets(doc);
       this.navigation.setRouteKey(this.state.url, routeKey);
+
+      // Clean the preload screen out of cache after loading the screen
+      if (params.preloadScreen) {
+        this.navigation.removePreloadScreen(params.preloadScreen);
+        this.props.removePreload?.(params.preloadScreen);
+      }
+      if (params.behaviorElementId) {
+        this.navigation.removePreloadScreen(params.behaviorElementId);
+        this.props.removePreload?.(params.behaviorElementId);
+      }
+
       this.setState({
         doc,
         elementError: null,
