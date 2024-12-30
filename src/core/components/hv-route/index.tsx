@@ -79,6 +79,17 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
     return state;
   }
 
+  /**
+   * @returns true if the content component is being rendered
+   */
+  isContentRendering = (): boolean => {
+    return !!(
+      this.props.element ||
+      this.localDoc ||
+      this.props.route?.params?.isModal
+    );
+  };
+
   componentDidMount() {
     this.parser = new DomService.Parser(
       this.props.fetch,
@@ -100,11 +111,7 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
     }
 
     // Clean out loading screen cache after the screen has been rendered
-    if (
-      this.props.element ||
-      this.localDoc ||
-      this.props.route?.params?.isModal
-    ) {
+    if (this.isContentRendering()) {
       if (this.props.route?.params?.preloadScreen) {
         this.removePreload(this.props.route?.params?.preloadScreen);
       }
@@ -531,11 +538,7 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
       if (this.state.error) {
         return <Err error={this.state.error} />;
       }
-      if (
-        this.props.element ||
-        this.localDoc ||
-        this.props.route?.params?.isModal
-      ) {
+      if (this.isContentRendering()) {
         return <Content />;
       }
       return <Load />;
