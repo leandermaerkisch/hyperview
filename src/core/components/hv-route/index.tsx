@@ -337,11 +337,11 @@ class HvRouteInner extends PureComponent<Types.InnerRouteProps, ScreenState> {
     // If no behavior element is found, check for a route element
     const routeElement =
       behaviorElement === undefined &&
-      this.props.route?.params?.loaderElementId &&
+      this.props.route?.params?.routeElementId &&
       this.props.doc
         ? NavigatorService.getRouteById(
             this.props.doc,
-            this.props.route?.params?.loaderElementId,
+            this.props.route?.params?.routeElementId,
           )
         : undefined;
 

@@ -395,7 +395,7 @@ export type RouteParams = {
   url: string;
   preloadScreen?: number;
   isModal?: boolean;
-  loaderElementId?: string;
+  routeElementId?: string;
 };
 
 export const ON_EVENT_DISPATCH = 'hyperview:on-event';

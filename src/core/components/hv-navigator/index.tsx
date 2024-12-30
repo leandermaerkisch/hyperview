@@ -190,11 +190,11 @@ export default class HvNavigator extends PureComponent<Props> {
     href: string | undefined,
     isModal: boolean,
     isFirstScreen: boolean = false,
-    loaderElementId?: string,
+    routeElementId?: string,
   ): React.ReactElement => {
     const initialParams = NavigatorService.isDynamicRoute(id)
       ? {}
-      : { id, isModal, loaderElementId, url: href };
+      : { id, isModal, routeElementId, url: href };
     if (type === NavigatorService.NAVIGATOR_TYPE.TAB) {
       return (
         <BottomTab.Screen
@@ -284,7 +284,7 @@ export default class HvNavigator extends PureComponent<Props> {
         const href: string | null | undefined = navRoute.getAttribute('href');
         const isModal =
           navRoute.getAttribute(NavigatorService.KEY_MODAL) === 'true';
-        const loaderElementId = id;
+        const routeElementId = id;
 
         // Check for nested navigators
         const nestedNavigator: Element | null = getFirstChildTag(
@@ -308,7 +308,7 @@ export default class HvNavigator extends PureComponent<Props> {
             href || undefined,
             isModal,
             index === 0,
-            loaderElementId || undefined,
+            routeElementId || undefined,
           ),
         );
       }
@@ -421,7 +421,7 @@ export default class HvNavigator extends PureComponent<Props> {
         this.props.params?.url || undefined,
         false,
         false,
-        this.props.params?.loaderElementId || undefined,
+        this.props.params?.routeElementId || undefined,
       ),
     );
     screens.push(...this.buildDynamicScreens());
