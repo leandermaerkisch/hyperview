@@ -15,6 +15,7 @@ npx expo install @react-native-community/datetimepicker @react-native-picker/pic
 yarn add @babel/preset-env @react-navigation/bottom-tabs @react-navigation/native @react-navigation/stack @types/react moment react-dom typescript hyperview
 yarn add @expo/webpack-config -D
 yarn add react-native-keyboard-aware-scrollview@2.1.0 --exact
+yarn add --dev @tsconfig/react-native
 cd ..
 mv demo-old/src demo
 mv demo-old/App.tsx demo
