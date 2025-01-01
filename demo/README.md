@@ -11,8 +11,9 @@ However, it's possible that some of these commands will need to be tweaked. If t
 mv demo/ demo-old
 npx --yes create-expo-app demo --template expo-template-blank-typescript
 cd demo/
-npx expo install @react-native-community/datetimepicker @react-native-picker/picker react-native-gesture-handler react-native-safe-area-context react-native-screens react-native-web react-native-webview
-yarn add @babel/preset-env @react-navigation/bottom-tabs @react-navigation/native @react-navigation/stack @types/react moment react-dom typescript hyperview
+npx expo install @react-native-community/datetimepicker @react-native-picker/picker react-native-gesture-handler react-native-safe-area-context react-native-screens react-native-web react-native-webview react-native-maps react-native-svg
+yarn add @babel/preset-env @react-navigation/bottom-tabs @react-navigation/native @react-navigation/stack moment typescript hyperview
+yarn add react-dom@18.3.1 @types/react@18.3.12
 yarn add @expo/webpack-config -D
 yarn add react-native-keyboard-aware-scrollview@2.1.0 --exact
 yarn add --dev @tsconfig/react-native

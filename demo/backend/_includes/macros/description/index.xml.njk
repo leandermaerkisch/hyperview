@@ -1,9 +1,0 @@
-{% macro description(x) %}
-  {% if caller %}
-    <text style="description">
-      {{ caller() }}
-    </text>
-  {% else %}
-    <text style="description">{{ x }}</text>
-  {% endif %}
-{% endmacro %}

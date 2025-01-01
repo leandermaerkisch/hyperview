@@ -6,7 +6,8 @@ node_modules/
 # Expo
 .expo/
 dist/
-hyperview/
+web-build/
+expo-env.d.ts
 
 # Native
 *.orig.*
